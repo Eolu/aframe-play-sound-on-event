@@ -23,7 +23,7 @@ Install and use by directly including the [browser files](dist):
 <head>
   <title>My A-Frame Scene</title>
   <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-play-sound-on-event@1.0.0/dist/aframe-play-sound-on-event.min.js"></script>
+  <script src="https://unpkg.com/aframe-play-sound-on-event@1.0.2/dist/aframe-play-sound-on-event.min.js"></script>
 </head>
 
 <body>
