@@ -15,8 +15,8 @@
     "webvr"
   ],
   "repository": {
-  "type": "git",
-  "url": "git://github.com/Eolu/aframe-play-sound-on-event.git"
+    "type": "git",
+    "url": "git://github.com/Eolu/aframe-play-sound-on-event.git"
   },
   "author": "Griffin O'Neill",
   "license": "MIT"

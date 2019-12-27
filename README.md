@@ -12,3 +12,48 @@ The 'type' property specifies the semantics The default is `one-shot`:
 
 Calling `pause()` on this component will disable remove listeners, effectively disabling the functionality of this component. It will not directly pause audio.   
 Calling `play()` will recreate listeners if `pause()` has been called previously. Otherwise this will do nothing.
+
+### Installation
+
+#### Browser Installation
+
+Install and use by directly including the [browser files](dist):
+
+```html
+<head>
+  <title>My A-Frame Scene</title>
+  <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-play-sound-on-event@1.0.0/dist/aframe-play-sound-on-event.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+  
+    <a-assets>
+      <audio id="ambient_music" src="audio/Coin_Machine.mp3"></audio>
+    </a-assets>
+    
+    <a-entity
+      sound="src: #ambient_music"
+      play-sound-on-event="mode: toggle-stop; event: click"
+      geometry="primitive: box">
+    </a-entity>
+    
+  </a-scene>
+</body>
+```
+
+#### NPM Installation
+
+Install via NPM:
+
+```bash
+npm install aframe-play-sound-on-event
+```
+
+Then register and use.
+
+```js
+require('aframe');
+require('aframe-play-sound-on-event');
+```
