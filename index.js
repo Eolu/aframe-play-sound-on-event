@@ -5,12 +5,12 @@ if (typeof AFRAME === 'undefined') {
 
 /**
  * A component which plays sound on an event. Accepts the following modes:
- * @property mode Accepts the following strings:
- *                'one-shot' plays audio from the beginning when play is pressed
- *                'play-only' same as one-shot, but doesn't interrupt audio if playing
- *                'toggle-pause' Plays and pauses with click
- *                'toggle-stop' Plays and stops with click
- * @property event The event type which will trigger sound to play.
+ * @param mode Accepts the following strings:
+ *             'one-shot' plays audio from the beginning when play is pressed
+ *             'play-only' same as one-shot, but doesn't interrupt audio if playing
+ *             'toggle-pause' Plays and pauses with click
+ *             'toggle-stop' Plays and stops with click
+ * @param event The event type which will trigger sound to play.
  */
 AFRAME.registerComponent('play-sound-on-event', 
 {
@@ -22,22 +22,21 @@ AFRAME.registerComponent('play-sound-on-event',
     },
     play: function ()
     {
-        if (this.soundPlaying)
+        if (this.removed)
         {
-            this.el.components.sound.playSound();
+            this.update();
         }
     },
     pause: function ()
     {
-        if (this.soundPlaying)
-        {
-            this.el.components.sound.pauseSound();
-        }
+        this.remove();
     },
     update: function (oldData) 
     {
-        this.remove();
-        this.soundPlaying = this.el.components.sound.autoplay;
+        if (!this.removed)
+        {
+            this.remove();
+        }
         switch(this.data.mode) 
         {
         case 'one-shot':
@@ -87,11 +86,14 @@ AFRAME.registerComponent('play-sound-on-event',
         default:
             throw "Invalid mode: " + this.data.mode;
         }
+        this.soundPlaying = this.el.components.sound.autoplay;
         this.el.addEventListener(this.data.event, this.eventTriggered); 
+        this.removed = false;
     },
     remove: function () 
     { 
         this.el.removeEventListener(this.data.event, this.eventTriggered);
         this.el.removeEventListener("sound-ended", this.soundEnded);
+        this.removed = true;
     }
 });

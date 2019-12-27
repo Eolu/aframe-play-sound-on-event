@@ -10,4 +10,5 @@ The 'type' property specifies the semantics The default is `one-shot`:
 * `type="toggle-pause"` - When the event is triggered, `playSound()` will be called if the sound is stopped or paused, `pauseSound()` will be called if the sound is playing.   
 * `type="toggle-stop"` - When the event is triggered, `playSound()` will be called if the sound is stopped or paused, `stopSound()` will be called if the sound is playing.   
 
-In any case, calling `pause()` on this component will call `pauseSound()` on the sound if playing, and calling `play()` will call `playSound()` if and only if `pause()` had been called prior to pause the sound while the sound had been playing.
+Calling `pause()` on this component will disable remove listeners, effectively disabling the functionality of this component. It will not directly pause audio.   
+Calling `play()` will recreate listeners if `pause()` has been called previously. Otherwise this will do nothing.
