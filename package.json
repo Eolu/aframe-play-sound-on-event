@@ -1,0 +1,19 @@
+{
+  "name": "aframe-play-sound-on-event",
+  "version": "1.0.0",
+  "description": "This is a component for AFRAME which allows events to trigger sounds.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aframe",
+    "aframe-component",
+    "aframe-vr",
+    "vr",
+    "mozvr",
+    "webvr"
+  ],
+  "author": "Griffin O'Neill",
+  "license": "MIT"
+}
