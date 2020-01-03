@@ -1,6 +1,6 @@
 {
   "name": "aframe-play-sound-on-event",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This is a component for AFRAME which allows events to trigger sounds.",
   "main": "index.js",
   "scripts": {
